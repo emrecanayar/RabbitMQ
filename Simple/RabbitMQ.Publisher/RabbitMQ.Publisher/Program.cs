@@ -2,7 +2,7 @@
 using RabbitMQ.Client;
 using System.Text;
 
-//RabbitMQ ile bağlatnı oluşturma. Kullandığımız yapı 
+//RabbitMQ ile bağlantı oluşturma. Kullandığımız yapı 
 ConnectionFactory factory = new();
 factory.Uri = new("amqps://ozlhavpw:dCQqC5opP19AijsrsJH4o-yJmql2b7pM@hawk.rmq.cloudamqp.com/ozlhavpw");
 
@@ -21,7 +21,8 @@ channel.QueueDeclare(queue: "example-queue", exclusive: false, durable: true);
 //byte[] message = Encoding.UTF8.GetBytes("Merhaba RabbitMQ");
 //channel.BasicPublish(exchange: "", routingKey: "example-queue", body: message); //Basit bir yapı kurduğumuz için exchange boş geçiyoruz. RoutingKey ise exchange boş olduğu için queue ismiyle aynı olacaktır.
 
-//Bu kısım da mesajın rabbitmq da kalıcı olmasını sağlar. Burada verdiğimiz ayarıda aşağıdaki BasicPublish de basicProperties e tanımlamamız gerekmektedir.
+//Bu kısım da mesajın rabbitmq da kalıcı olmasını sağlar.
+//Burada verdiğimiz ayarıda aşağıdaki BasicPublish de basicProperties e tanımlamamız gerekmektedir.
 IBasicProperties properties = channel.CreateBasicProperties();
 properties.Persistent = true;
 
