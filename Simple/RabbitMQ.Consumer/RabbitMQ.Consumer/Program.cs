@@ -13,7 +13,8 @@ using IConnection connection = factory.CreateConnection(); //Bağlantı oluştur
 using IModel channel = connection.CreateModel(); // Oluşturulan bu bağlantı üzerinden bir kanal oluşturduk.
 
 //Queue Oluşturma
-channel.QueueDeclare(queue: "example-queue", exclusive: false, durable: true); //Consumer'da da kuyruk publisher'daki ile birebir aynı yapılandırılmada tanımlanmalıdır.
+channel.QueueDeclare(queue: "example-queue", exclusive: false, durable: true);
+//Consumer'da da kuyruk publisher'daki ile birebir aynı yapılandırılmada tanımlanmalıdır.
 //Kuyruk Publisher da durable true olarak tanımlandıysa consumer tarafında da bunu true olarak tanımlamamız gerekmektedir.
 
 
